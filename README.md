@@ -1,4 +1,4 @@
-# CloudKommand-Tutorial
+# CloudKommand Tutorial Repository
 
 This repository was loaded into your Github as part of signing up for CloudKommand. Note that no charges are incurred by deploying the configuration defined in this repository or leaving it deployed.
 
