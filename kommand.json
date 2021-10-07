@@ -45,7 +45,7 @@
             "api_name": "ck_tutorial_api",
             "resources": {
                 "/{proxy+}": {
-                    "ANY": "@ruby_lambda:props.function_arn"
+                    "ANY": "@lambda:props.function_arn"
                 }
             },
             "cors_enabled": true
