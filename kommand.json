@@ -12,6 +12,7 @@
                     "Action": [
                         "lambda:*",
                         "events:*",
+                        "dynamodb:*",
                         "sns:*"
                     ],
                     "Resource": "*"
