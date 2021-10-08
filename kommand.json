@@ -52,8 +52,6 @@
         }
     },
     "repos": {
-        "foundation": {
-            "url": "https://github.com/cloudkommand/foundation"
-        }
+        "foundation": "https://github.com/cloudkommand/foundation"
     }
 }
