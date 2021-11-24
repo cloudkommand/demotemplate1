@@ -6,6 +6,9 @@ It uses AWS Lambda, DynamoDB, IAM, and API Gateway to create an API that you can
 
 Use this kommand.json combined with the folder structure to develop your own application, and check out the CloudKommand-managed extensions at:'
 
-- Basics: https://github.com/cloudkommand/foundation
-- Databases: https://github.com/cloudkommand/databases
-- React Apps: https://github.com/cloudkommand/react
+- IAM (role and policy): https://github.com/cloudkommand/iam 
+- Lambda (function and layer): https://github.com/cloudkommand/lambda
+- S3: https://github.com/cloudkommand/s3
+- API Gateway: https://github.com/cloudkommand/apigateway
+- DynamoDB: https://github.com/cloudkommand/dynamodb
+- React Apps (website hosting with CDN and DNS): https://github.com/cloudkommand/reactapp
