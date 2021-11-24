@@ -24,7 +24,7 @@
             "timeout": 10,
             "policies": ["@tutorial_policy"],
             "environment_variables": {
-                "table_name": "@table:props.table_name"
+                "table_name": "@table:props.name"
             }
         },
         "tutorial_table": {
@@ -34,7 +34,7 @@
             "type": "@apigateway.api",
             "resources": {
                 "/{proxy+}": {
-                    "ANY": "@lambda:props.function_arn"
+                    "ANY": "@tutorial_lambda:props.arn"
                 }
             },
             "cors_enabled": true
