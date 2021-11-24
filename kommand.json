@@ -24,7 +24,7 @@
             "timeout": 10,
             "policies": ["@tutorial_policy"],
             "environment_variables": {
-                "table_name": "@table:props.name"
+                "table_name": "@tutorial_table:props.name"
             }
         },
         "tutorial_table": {
