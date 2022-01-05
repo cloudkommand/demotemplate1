@@ -56,10 +56,10 @@
         }
     },
     "repos": {
-        "iam": "https://github.com/cloudkommand/iam",
-        "lambda": "https://github.com/cloudkommand/lambda",
-        "dynamodb": "https://github.com/cloudkommand/dynamodb",
+        "reactapp": "https://github.com/cloudkommand/reactapp",
         "apigateway": "https://github.com/cloudkommand/apigateway",
-        "reactapp": "https://github.com/cloudkommand/reactapp"
+        "dynamodb": "https://github.com/cloudkommand/dynamodb",
+        "lambda": "https://github.com/cloudkommand/lambda",
+        "iam": "https://github.com/cloudkommand/iam"
     }
 }
