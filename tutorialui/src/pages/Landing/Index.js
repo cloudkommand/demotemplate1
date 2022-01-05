@@ -27,53 +27,69 @@ const CLOUDKOMMAND_LANDING_PAGE_URL = get_config().cloudkommand_url
 const DISCORD_CHANNEL_URL = get_config().discord_channel_url
 
 const demo_text = `{
-    "components": {
-        "tutorial_table": {
-            "type": "@dynamodb.table"
-        },
-        "tutorial_api": {
-            "type": "@apigateway.api",
-            "resources": {
-                "/{proxy+}": {
-                    "ANY": "@tutorial_lambda:props.arn"
-                }
-            },
-            "cors_enabled": true
-        },
-        "tutorial_lambda": {
-            "type": "@lambda.function",
-            "description": "CloudKommand Tutorial Lambda",
-            "timeout": 10,
-            "policies": ["@tutorial_policy"],
-            "environment_variables": {
-                "table_name": "@tutorial_table:props.name"
-            }
-        },
-        "tutorial_policy": {
-            "type": "@iam.policy",
-            "description": "CloudKommand Tutorial Policy",
-            "document": {
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Vis",
-                    "Effect": "Allow",
-                    "Action": [
-                        "lambda:*",
-                        "events:*",
-                        "dynamodb:*",
-                        "sns:*"
-                    ],
-                    "Resource": "*"
-                }]
-            }
-        }
-    },
-    "repos": {
-        "iam": "https://github.com/cloudkommand/iam",
-        "lambda": "https://github.com/cloudkommand/lambda",
-        "dynamodb": "https://github.com/cloudkommand/dynamodb",
-        "apigateway": "https://github.com/cloudkommand/apigateway"
-    }
+  "components": {
+      "tutorialui": {
+          "type": "@reactapp.spa",
+          "bundler": "webpack",
+          "config":{
+              "path":"src/config/config.js",
+              "data": {
+                  "cloudkommand_api": "https://api.cloudkommand.com",
+                  "backend_api_endpoint": "@tutorial_api:props.endpoint_with_stage",
+                  "discord_channel_url": "https://discord.com/channels/883179780575477821",
+                  "cloudkommand_url": "https://cloudkommand.com"
+              }
+          }
+      },
+      "tutorial_table": {
+          "type": "@dynamodb.table"
+      },
+      "tutorial_api": {
+          "type": "@apigateway.api",
+          "resources": {
+              "/{proxy+}": {
+                  "OPTIONS": "@tutorial_lambda:props.arn",
+                  "GET": "@tutorial_lambda:props.arn"
+              }
+          },
+          "cors_enabled": true,
+          "something":"else"
+      },
+      "tutorial_lambda": {
+          "type": "@lambda.function",
+          "description": "CloudKommand Tutorial Lambda",
+          "timeout": 10,
+          "policies": ["@tutorial_policy"],
+          "environment_variables": {
+              "table_name": "@tutorial_table:props.name"
+          }
+      },
+      "tutorial_policy": {
+          "type": "@iam.policy",
+          "description": "CloudKommand Tutorial Policy",
+          "document": {
+              "Version": "2012-10-17",
+              "Statement": [{
+                  "Sid": "Vis",
+                  "Effect": "Allow",
+                  "Action": [
+                      "lambda:*",
+                      "events:*",
+                      "dynamodb:*",
+                      "sns:*"
+                  ],
+                  "Resource": "*"
+              }]
+          }
+      }
+  },
+  "repos": {
+      "reactapp": "https://github.com/cloudkommand/reactapp",
+      "apigateway": "https://github.com/cloudkommand/apigateway",
+      "dynamodb": "https://github.com/cloudkommand/dynamodb",
+      "lambda": "https://github.com/cloudkommand/lambda",
+      "iam": "https://github.com/cloudkommand/iam"
+  }
 }`
 
 export function GeneralHeader({loggedIn}) {
