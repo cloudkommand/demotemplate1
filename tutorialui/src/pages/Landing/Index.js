@@ -52,8 +52,7 @@ const demo_text = `{
                   "GET": "@tutorial_lambda:props.arn"
               }
           },
-          "cors_enabled": true,
-          "something":"else"
+          "cors_enabled": true
       },
       "tutorial_lambda": {
           "type": "@lambda.function",
