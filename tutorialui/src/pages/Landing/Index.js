@@ -36,7 +36,7 @@ const demo_text = `{
               "data": {
                   "cloudkommand_api": "https://api.cloudkommand.com",
                   "backend_api_endpoint": "@tutorial_api:props.endpoint_with_stage",
-                  "discord_channel_url": "https://discord.com/channels/883179780575477821",
+                  "discord_channel_url": "https://discord.gg/PVbhzQqnPZ",
                   "cloudkommand_url": "https://cloudkommand.com"
               }
           }
