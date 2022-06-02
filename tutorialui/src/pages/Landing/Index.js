@@ -218,13 +218,17 @@ export default function Landing() {
 
     const [ clickCounter, setClickCounter ] = useState(null)
 
-    async function callClickCounter() {
-        const click_counter_response = await get(`/click_counter`)
+    async function iterateClickCounter() {
+        const click_counter_response = await get(`/iterate_counter`)
         if (response.ok) setClickCounter(click_counter_response)
     }
+    async function getClickCounter() {
+      const click_counter_response = await get(`/get_counter`)
+      if (response.ok) setClickCounter(click_counter_response)
+  }
 
     useEffect(()=>{
-        callClickCounter()
+        getClickCounter()
     },[])
   
     console.log(clickCounter)
@@ -260,7 +264,7 @@ export default function Landing() {
                         </div>
                       </div> */}
                       <div className="body_first_section_content_column_header_title"><span className="bright">Try out your live API now!</span></div>
-                      <div className="body_first_section_content_column_ping_button" onClick={callClickCounter}>Ping Your API</div>
+                      <div className="body_first_section_content_column_ping_button" onClick={iterateClickCounter}>Ping Your API</div>
                       <div className="body_first_section_content_column_api_ping_counter">Times API Pinged: &nbsp;<span className="bright">{`${clickCounter ? clickCounter.click_counter : ""}`}</span></div>
                     </div>
                     <div className="landing_overview_horizontal_divider"></div>
