@@ -12,7 +12,8 @@ def lambda_handler(event, context):
 
         print(event)
 
-        path = event['rawPath']
+        raw_path = event['rawPath']
+        path = raw_path.replace("/live", "")
 
         if (path == "/api/v1/iterate_counter"):
             response = dynamodb.update_item(
@@ -44,7 +45,7 @@ def lambda_handler(event, context):
             try:
                 response = dynamodb.get_item(TableName=table_name, Key=add_ddb_meta({"pkey": "dkf"}))
                 print(response)
-                item = remove_ddb_meta(response.get("Attributes")) if response else None
+                item = remove_ddb_meta(response.get("Item")) if response else None
             except:
                 item = {"scoress": 0}
 
@@ -56,7 +57,7 @@ def lambda_handler(event, context):
                     "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
                     'Content-Type': 'application/json'
                 },
-                "body": json.dumps({"click_counter": f"{item.get('scoress')}"})
+                "body": json.dumps({"click_counter": f"{item.get('scoress') if item else 0}"})
             }
         
             return final_response
