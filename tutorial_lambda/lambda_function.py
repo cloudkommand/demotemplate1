@@ -9,31 +9,61 @@ def lambda_handler(event, context):
         table_name = lambda_env("table_name")
     
         dynamodb = boto3.client("dynamodb")
-    
-        response = dynamodb.update_item(
-                TableName=table_name,
-                Key=add_ddb_meta({"pkey": "dkf"}),
-                UpdateExpression = "ADD scoress :val",
-                ExpressionAttributeValues = add_ddb_meta({
-                    ":val": 1
-                    }),
-                ReturnValues = "ALL_NEW"
-            )
-    
-        item = remove_ddb_meta(response.get("Attributes")) if response else None
-    
-        final_response = {
-            "statusCode":200,
-            "headers": {
-                "Access-Control-Allow-Headers" : "Authorization,Content-Type,x-amz-date,x-amzm-header,x-api-key,x-apigateway-header",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
-                'Content-Type': 'application/json'
-            },
-            "body": json.dumps({"click_counter": f"{item.get('scoress')}"})
-        }
-    
-        return final_response
+
+        print(event)
+
+        raw_path = event['rawPath']
+        path = raw_path.replace("/live", "")
+
+        if (path == "/api/v1/iterate_counter"):
+            response = dynamodb.update_item(
+                    TableName=table_name,
+                    Key=add_ddb_meta({"pkey": "dkf"}),
+                    UpdateExpression = "ADD scoress :val",
+                    ExpressionAttributeValues = add_ddb_meta({
+                        ":val": 1
+                        }),
+                    ReturnValues = "ALL_NEW"
+                )
+        
+            item = remove_ddb_meta(response.get("Attributes")) if response else None
+        
+            final_response = {
+                "statusCode":200,
+                "headers": {
+                    "Access-Control-Allow-Headers" : "Authorization,Content-Type,x-amz-date,x-amzm-header,x-api-key,x-apigateway-header",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+                    'Content-Type': 'application/json'
+                },
+                "body": json.dumps({"click_counter": f"{item.get('scoress')}"})
+            }
+        
+            return final_response
+        
+        else:
+            try:
+                response = dynamodb.get_item(TableName=table_name, Key=add_ddb_meta({"pkey": "dkf"}))
+                print(response)
+                item = remove_ddb_meta(response.get("Item")) if response else None
+            except:
+                item = {"scoress": 0}
+
+            final_response = {
+                "statusCode":200,
+                "headers": {
+                    "Access-Control-Allow-Headers" : "Authorization,Content-Type,x-amz-date,x-amzm-header,x-api-key,x-apigateway-header",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+                    'Content-Type': 'application/json'
+                },
+                "body": json.dumps({"click_counter": f"{item.get('scoress') if item else 0}"})
+            }
+        
+            return final_response
+        
+
+
     except:
         print(traceback.format_exc())
 
