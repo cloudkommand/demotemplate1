@@ -272,7 +272,7 @@ export default function Landing() {
                       <div className="body_first_section_content_column_header_container">
                         <div className="body_first_section_content_column_header_title"><span className="bright">Did you know?</span></div>
                         <div className="body_first_section_content_column_header_items">
-                          <div className="body_first_section_content_column_header_additional_text"><span className="emphasis">The # of extensions users deployed with</span></div>
+                          <div className="body_first_section_content_column_header_additional_text"><span className="emphasis">The # of plug-ins users deployed with</span></div>
                           <div className="body_first_section_header_logo_item">
                             <img className="body_first_section_content_column_header_logo"onClick={()=>{navigate("/")}} src={CloudKommandLogo}/>
                             <div className="body_first_section_content_column_header_items_logo_text">CloudKommand <span className="emphasis">:</span></div>
@@ -321,12 +321,12 @@ export default function Landing() {
                 <div className={width > 990 ? "landing_overview_content_row" : "landing_overview_content_row_flip"}>
                   <div className={width > 990 ? "landing_overview_content_row_item" : "landing_overview_content_row_item_flip"}>
                       <div className="landing_overview_content_header">Develop</div>
-                      <div className="landing_overview_content_first_line">Use our powerful Extensions to whisk away infrastructure code.</div>
+                      <div className="landing_overview_content_first_line">Use our powerful Plug-Ins to whisk away infrastructure code.</div>
                       <div className="landing_overview_content_second_description">Declare full-blown apps and their relationships through simple abstract syntax in JSON.</div>
                       <div className="landing_overview_content_first_line">Develop directly against the cloud. </div>
                       <div className="landing_overview_content_second_description">Easy configuration, managed deployment, and infrastructure sandboxing means developers can now test all their ideas in the cloud instead of praying they work when finally deployed.</div>
-                      <div className="landing_overview_content_first_line">Extend your use-cases and workflow with Extensions. </div>
-                      <div className="landing_overview_content_second_description">Use our rapidly growing open-source library of powerful Extensions. Or contribute to the community by easily rolling your own!</div>
+                      <div className="landing_overview_content_first_line">Extend your use-cases and workflow with Plug-Ins. </div>
+                      <div className="landing_overview_content_second_description">Use our rapidly growing open-source library of powerful Plug-Ins. Or contribute to the community by easily rolling your own!</div>
                   </div>
                   <div className={width > 990 ? "landing_overview_content_row_item" : "landing_overview_content_row_item_flip"}>
                       <AceEditor
