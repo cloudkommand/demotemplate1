@@ -41,15 +41,14 @@
             "document": {
                 "Version": "2012-10-17",
                 "Statement": [{
-                    "Sid": "Vis",
+                    "Sid": "Dynamo",
                     "Effect": "Allow",
                     "Action": [
-                        "lambda:*",
-                        "events:*",
-                        "dynamodb:*",
-                        "sns:*"
+                        "dynamodb:GetItem",
+                        "dynamodb:PutItem",
+                        "dynamodb:UpdateItem"
                     ],
-                    "Resource": "*"
+                    "Resource": "@tutorial_table:props.arn"
                 }]
             }
         }
