@@ -4,7 +4,7 @@ This repository was loaded into your Github as part of signing up for CloudKomma
 
 It uses AWS Lambda, DynamoDB, IAM, and API Gateway to create an API that you can hit to increment a counter.
 
-Use this kommand.json combined with the folder structure to develop your own application, and check out the CloudKommand-managed extensions at:'
+Use this kommand.json combined with the folder structure to develop your own application, and check out the CloudKommand-managed plugins at:'
 
 - IAM (role and policy): https://github.com/cloudkommand/iam 
 - Lambda (function and layer): https://github.com/cloudkommand/lambda
