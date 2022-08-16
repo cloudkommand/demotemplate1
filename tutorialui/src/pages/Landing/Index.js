@@ -248,12 +248,12 @@ export default function Landing() {
               <div className="container">
                   <div className="bd_intro_container">
                   <div className="bd_intro_container_items_headliner" >
-                      <div className="bd_intro_container_items_headliner_item">
+                      {/* <div className="bd_intro_container_items_headliner_item">
                         <img className="bd_intro_container_items_headliner_image" onClick={()=>{navigate("/")}} src={CloudKommandLogo}/>
                         <div className="bd_intro_container_items_headliner_inner_text">CloudKommand</div>
-                      </div>
+                      </div> */}
                       <div className="bd_intro_container_items_headliner_item">
-                        <div className="bd_intro_container_items_headliner_inner_text">Sample UI</div>
+                        <div className="bd_intro_container_items_headliner_inner_text">You just deployed this full stack app with CloudKommand!!</div>
                       </div>
                   </div>
                   <div className="body_first_section_content">
