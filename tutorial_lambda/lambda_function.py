@@ -11,10 +11,20 @@ def lambda_handler(event, context):
         dynamodb = boto3.client("dynamodb")
 
         print(event)
-
+        http_method = event.get("http").get("method")
         raw_path = event['rawPath']
         path = raw_path.replace("/live", "")
 
+        # Prevents iterating counter on CORS options calls
+        if http_method == "OPTIONS":
+            response = {
+                "statusCode": 200,
+                "body": json.dumps({
+                    "exists": True
+                })
+            }
+            return response
+        
         if (path == "/api/v1/iterate_counter"):
             response = dynamodb.update_item(
                     TableName=table_name,
