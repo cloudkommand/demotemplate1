@@ -1,7 +1,7 @@
 
 $app_header_height: 125px;
 $app_footer_height: 223px;
-$app_background_color: $p-dark;
+$app_background_color: $p-darkest;
 $app_margin_top: 30px;
 
 html {
@@ -25,7 +25,7 @@ html {
       margin:25px;
       margin-right:0px;
       margin-left:50px;
-      cursor: pointer;
+      cursor: normal;
     }
     &-smallimg {
       height:1rem;
@@ -49,7 +49,7 @@ html {
         font-weight: bold;
         color:$p-bright;
         border-radius: 0.25rem;
-        border: 2px solid $p-dark;
+        border: 2px solid $app_background_color;
         line-height: 50px;
         position:relative;
 
@@ -644,7 +644,7 @@ html {
       padding-left: 0;
     }
     footer {
-        background-color: $p-dark;
+        background-color: $app_background_color;
         color: $p-bright;
         width:100%;
     }
@@ -683,7 +683,7 @@ html {
           height:45px;
           margin:25px;
           margin:0px;
-          cursor: pointer;
+          cursor: normal;
         }
     }
     .ft-follow-row {

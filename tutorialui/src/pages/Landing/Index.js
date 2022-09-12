@@ -3,6 +3,7 @@ import { Link, Redirect, useNavigate } from "react-router-dom";
 import "styles/App.scss";
 import CloudKommandLogo from "images/cloudkommand_logo.svg"
 import CloudKommandLogoDark from "images/cloudkommand_logo_dark.svg"
+import InvadersImage from "images/invader.svg"
 import DiscordLogo from "images/discord-brands.svg"
 import PatternL from "images/pattern-l.svg"
 import CompleteDeploymentScreenshot from "images/deployment_screenshot.png"
@@ -99,7 +100,7 @@ export function GeneralHeader({loggedIn}) {
   }
   return (
     <div className="landing_page__header">
-        <img className="landing_page__header-img" onClick={()=>{window.open(CLOUDKOMMAND_LANDING_PAGE_URL, "_blank")}} src={CloudKommandLogo}/>
+        <img className="landing_page__header-img" src={InvadersImage}/>
         <div className="landing_page__header-navbar">
           {
             width > 940 ?
@@ -155,7 +156,7 @@ export function GeneralFooter() {
         <footer>
           <section class="ft-main">
             <div class="ft-main-item">
-              <img className="ft-main-item-img" onClick={()=>{window.open(CLOUDKOMMAND_LANDING_PAGE_URL, "_blank")}} src={CloudKommandLogo}/>
+              <img className="ft-main-item-img" src={InvadersImage}/>
             </div>
             <div class="ft-main-item">
               <h2 class="ft-title">About</h2>
@@ -183,7 +184,7 @@ export function GeneralFooter() {
             <ul class="ft-legal-list">
               <li><a onClick={()=>{route_to_x(`/construction_zone`)}}>Privacy</a></li>
               <li><a onClick={()=>{route_to_x(`/construction_zone`)}}>Terms</a></li>
-              <li>&copy; 2021 CloudKommand</li>
+              <li>&copy; 2021 YOUR COMPANY</li>
             </ul>
           </section>
         </footer>
