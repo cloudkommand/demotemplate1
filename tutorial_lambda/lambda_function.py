@@ -11,7 +11,8 @@ def lambda_handler(event, context):
         dynamodb = boto3.client("dynamodb")
 
         print(event)
-        http_method = event.get("http").get("method")
+        context = event.get("requestContext")
+        http_method = context.get("http").get("method")
         raw_path = event['rawPath']
         path = raw_path.replace("/live", "")
 
